@@ -5,6 +5,7 @@ export default function GMCard({ gm }: { gm: GM }) {
   return (
     <Link
       href={`/gms/${gm.slug}`}
+      data-testid="gm-card"
       className="group flex flex-col rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md"
     >
       <div className="flex items-start justify-between">

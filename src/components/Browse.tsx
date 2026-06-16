@@ -29,12 +29,18 @@ export default function Browse() {
         onReset={() => setCriteria({})}
       />
 
-      <p className="text-sm font-medium text-stone-600">
+      <p
+        data-testid="result-count"
+        className="text-sm font-medium text-stone-600"
+      >
         {results.length} {results.length === 1 ? "Game Master" : "Game Masters"}
       </p>
 
       {results.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-stone-300 bg-white/60 p-12 text-center">
+        <div
+          data-testid="empty-state"
+          className="rounded-2xl border border-dashed border-stone-300 bg-white/60 p-12 text-center"
+        >
           <p className="text-3xl">🎲</p>
           <p className="mt-3 font-semibold text-stone-800">
             No GMs match your filters
