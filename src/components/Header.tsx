@@ -9,8 +9,7 @@ const NAV: { href: string; label: string }[] = [
   { href: "/gms", label: "Browse GMs" },
   { href: "/quiz", label: "Find my game" },
   { href: "/events", label: "Events" },
-  // Uncomment as each feature merges:
-  // { href: "/faq", label: "FAQ" },
+  { href: "/about", label: "How it works" },
 ];
 
 export default function Header() {
