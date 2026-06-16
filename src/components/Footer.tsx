@@ -5,7 +5,7 @@ import Link from "next/link";
  * (privacy, terms, faq) — keep only live routes to avoid dead links.
  */
 const LINKS: { href: string; label: string }[] = [
-  // { href: "/faq", label: "FAQ" },
+  { href: "/about#faq", label: "FAQ" },
   // { href: "/privacy", label: "Privacy" },
   // { href: "/terms", label: "Terms" },
 ];
