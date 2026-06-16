@@ -7,8 +7,8 @@ import Link from "next/link";
  */
 const NAV: { href: string; label: string }[] = [
   { href: "/gms", label: "Browse GMs" },
+  { href: "/quiz", label: "Find my game" },
   // Uncomment as each feature merges:
-  // { href: "/quiz", label: "Find my game" },
   // { href: "/events", label: "Events" },
   // { href: "/faq", label: "FAQ" },
 ];
