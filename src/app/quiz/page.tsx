@@ -41,8 +41,8 @@ export default function QuizPage() {
           Find your perfect table 🎲
         </h1>
         <p className="mt-2 text-lg text-stone-600">
-          Answer a few quick questions and we&apos;ll match you with Game Masters
-          you&apos;ll love.
+          Answer a few quick questions and we&apos;ll match you with Game
+          Masters you&apos;ll love.
         </p>
       </header>
 

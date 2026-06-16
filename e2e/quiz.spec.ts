@@ -29,7 +29,12 @@ test.describe("Quiz happy path", () => {
   test("answering all questions yields three linked recommendations", async ({
     page,
   }) => {
-    await takeQuiz(page, [/Brand new/, /Epic combat/, /High fantasy/, /Treat myself/]);
+    await takeQuiz(page, [
+      /Brand new/,
+      /Epic combat/,
+      /High fantasy/,
+      /Treat myself/,
+    ]);
 
     await expect(
       page.getByRole("heading", { name: /Your top \d+ Game Master/i }),
@@ -49,7 +54,12 @@ test.describe("Quiz happy path", () => {
 // veteran asking for the same combat/fantasy night get different top matches.
 test.describe("Quiz recommendations respond to answers", () => {
   test("experience changes the top recommendation", async ({ page }) => {
-    await takeQuiz(page, [/Brand new/, /Epic combat/, /High fantasy/, /Treat myself/]);
+    await takeQuiz(page, [
+      /Brand new/,
+      /Epic combat/,
+      /High fantasy/,
+      /Treat myself/,
+    ]);
     // Kai runs beginner-friendly combat — the right call for a newcomer.
     await expect(page.getByTestId("quiz-result").first()).toContainText(
       "Kai Emberforge",
@@ -85,8 +95,15 @@ test.describe("Quiz budget and retake", () => {
   });
 
   test("retake returns to the first question", async ({ page }) => {
-    await takeQuiz(page, [/Brand new/, /Cozy & casual/, /High fantasy/, /Treat myself/]);
-    await expect(page.getByRole("button", { name: /Retake quiz/i })).toBeVisible();
+    await takeQuiz(page, [
+      /Brand new/,
+      /Cozy & casual/,
+      /High fantasy/,
+      /Treat myself/,
+    ]);
+    await expect(
+      page.getByRole("button", { name: /Retake quiz/i }),
+    ).toBeVisible();
     await page.getByRole("button", { name: /Retake quiz/i }).click();
     await expect(page.getByText("Question 1 of")).toBeVisible();
     await expect(page.getByTestId("quiz-result")).toHaveCount(0);

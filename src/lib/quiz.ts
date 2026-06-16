@@ -160,9 +160,9 @@ const BEGINNER_BONUS = 4;
  * any questions are answered; matching answers then visibly reshuffle it.
  */
 export function scoreGMs(answers: QuizAnswers): GM[] {
-  const selected = QUIZ.map((q) => q.options.find((o) => o.id === answers[q.id])).filter(
-    (o): o is QuizOption => Boolean(o),
-  );
+  const selected = QUIZ.map((q) =>
+    q.options.find((o) => o.id === answers[q.id]),
+  ).filter((o): o is QuizOption => Boolean(o));
 
   const wantStyles = new Set<string>();
   const wantSystems = new Set<string>();
@@ -180,8 +180,10 @@ export function scoreGMs(answers: QuizAnswers): GM[] {
     .map((gm) => {
       let score = 0;
       for (const s of gm.styles) if (wantStyles.has(s)) score += STYLE_POINTS;
-      for (const s of gm.systems) if (wantSystems.has(s)) score += SYSTEM_POINTS;
-      if (wantBeginner && gm.styles.includes("Beginner-friendly")) score += BEGINNER_BONUS;
+      for (const s of gm.systems)
+        if (wantSystems.has(s)) score += SYSTEM_POINTS;
+      if (wantBeginner && gm.styles.includes("Beginner-friendly"))
+        score += BEGINNER_BONUS;
       score += gm.rating;
       return { gm, score };
     })
