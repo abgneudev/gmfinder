@@ -31,7 +31,7 @@ export default function Browse() {
 
       <p
         data-testid="result-count"
-        className="text-sm font-medium text-stone-600"
+        className="text-sm font-medium text-text-muted"
       >
         {results.length} {results.length === 1 ? "Game Master" : "Game Masters"}
       </p>
@@ -39,13 +39,13 @@ export default function Browse() {
       {results.length === 0 ? (
         <div
           data-testid="empty-state"
-          className="rounded-2xl border border-dashed border-stone-300 bg-white/60 p-12 text-center"
+          className="rounded-xl border border-dashed border-border bg-surface/60 p-12 text-center"
         >
           <p className="text-3xl">🎲</p>
-          <p className="mt-3 font-semibold text-stone-800">
+          <p className="mt-3 font-semibold text-text">
             No GMs match your filters
           </p>
-          <p className="mt-1 text-sm text-stone-500">
+          <p className="mt-1 text-sm text-text-faint">
             Try removing a filter to see more tables.
           </p>
         </div>

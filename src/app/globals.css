@@ -1,19 +1,97 @@
 @import "tailwindcss";
 
+/* ── Raw palette ─────────────────────────────────────────── */
 :root {
-  --background: #faf8f5;
-  --foreground: #1c1917;
+  /* Dark is the default theme */
+  --bg: #0b0c11;
+  --surface: #14161d;
+  --surface-2: #1b1e27;
+  --border: #262a36;
+  --border-strong: #363c4b;
+  --text: #f4f5f7;
+  --text-muted: #a8aebc;
+  --text-faint: #6f7686;
+  --accent: #7c6cff;
+  --accent-hover: #9385ff;
+  --accent-soft: rgba(124, 108, 255, 0.15);
+  --accent-contrast: #ffffff;
+  --gold: #ffb547;
+  --gold-soft: rgba(255, 181, 71, 0.15);
+  /* Status (e.g. open seats) — kept on the same cool axis as the palette */
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
 }
 
+/* Opt-in light theme: add class="light" to <html> (or wire a toggle later) */
+.light {
+  --bg: #faf8f5;
+  --surface: #ffffff;
+  --surface-2: #f4f2ee;
+  --border: #e7e3dc;
+  --border-strong: #d6d1c8;
+  --text: #1c1917;
+  --text-muted: #57534e;
+  --text-faint: #8a8580;
+  --accent: #5b4bdd;
+  --accent-hover: #4a3ad0;
+  --accent-soft: rgba(91, 75, 221, 0.1);
+  --accent-contrast: #ffffff;
+  --gold: #b8791b;
+  --gold-soft: rgba(184, 121, 27, 0.12);
+  --success: #15803d;
+  --success-soft: rgba(21, 128, 61, 0.12);
+}
+
+/* ── Semantic tokens → Tailwind utilities ────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+
+  /* Fonts */
+  --font-display: var(--font-cinzel), Georgia, serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Radius scale → rounded-sm/md/lg/xl */
+  --radius-sm: 0.5rem; /* 8px  — chips, inputs, badges */
+  --radius-md: 0.75rem; /* 12px — small panels, buttons */
+  --radius-lg: 1rem; /* 16px — cards (the default) */
+  --radius-xl: 1.5rem; /* 24px — hero/feature panels */
+
+  /* Elevation → shadow-card / shadow-card-hover / shadow-glow */
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px var(--accent), 0 10px 30px rgba(124, 108, 255, 0.28);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* ── Base ────────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Consistent, on-brand focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
