@@ -34,7 +34,10 @@ export default function EventCard({ event }: { event: GameEvent }) {
   const badge = SEAT_BADGE[status];
 
   return (
-    <article className="flex flex-col rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md">
+    <article
+      data-testid="event-card"
+      className="flex flex-col rounded-2xl border border-stone-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-300 hover:shadow-md"
+    >
       <div className="flex items-start justify-between gap-3">
         <span className="rounded-full bg-stone-100 px-2.5 py-1 text-xs font-medium text-stone-600">
           {event.type}
