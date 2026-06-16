@@ -19,23 +19,24 @@ export default async function GMDetailPage({
     <main className="mx-auto max-w-3xl px-6 py-12">
       <Link
         href="/"
-        className="text-sm font-medium text-indigo-600 hover:text-indigo-800"
+        className="text-sm font-medium text-accent hover:text-accent-hover"
       >
         ← Back to all GMs
       </Link>
 
       <header className="mt-6 flex items-start gap-5">
-        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-4xl">
+        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-4xl">
           {gm.avatar}
         </div>
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-stone-900">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-text sm:text-4xl">
             {gm.name}
           </h1>
-          <p className="mt-1 text-lg text-stone-600">{gm.tagline}</p>
-          <p className="mt-2 text-sm text-amber-800">
-            ⭐ {gm.rating.toFixed(1)} · {gm.reviews} reviews ·{" "}
-            <span className="font-semibold text-stone-900">
+          <p className="mt-1 text-lg text-text-muted">{gm.tagline}</p>
+          <p className="mt-2 font-mono text-sm tabular-nums text-text-muted">
+            <span className="text-gold">⭐ {gm.rating.toFixed(1)}</span> ·{" "}
+            {gm.reviews} reviews ·{" "}
+            <span className="font-semibold text-text">
               ${gm.pricePerSession}
             </span>
             /session
@@ -45,14 +46,14 @@ export default async function GMDetailPage({
 
       <section className="mt-8 grid gap-6 sm:grid-cols-2">
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-text-faint">
             Systems
           </h2>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {gm.systems.map((s) => (
               <span
                 key={s}
-                className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-sm font-medium text-indigo-700"
+                className="rounded-sm bg-accent-soft px-2.5 py-0.5 text-sm font-medium text-accent"
               >
                 {s}
               </span>
@@ -61,14 +62,14 @@ export default async function GMDetailPage({
         </div>
 
         <div>
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+          <h2 className="text-xs font-semibold uppercase tracking-wide text-text-faint">
             Style
           </h2>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {gm.styles.map((s) => (
               <span
                 key={s}
-                className="rounded-full bg-stone-100 px-2.5 py-0.5 text-sm text-stone-600"
+                className="rounded-sm bg-surface-2 px-2.5 py-0.5 text-sm text-text-muted"
               >
                 {s}
               </span>
@@ -78,14 +79,14 @@ export default async function GMDetailPage({
       </section>
 
       <section className="mt-6">
-        <h2 className="text-xs font-semibold uppercase tracking-wide text-stone-500">
+        <h2 className="text-xs font-semibold uppercase tracking-wide text-text-faint">
           Available sessions
         </h2>
         <ul className="mt-2 flex flex-wrap gap-2">
           {gm.schedule.map((slot) => (
             <li
               key={slot}
-              className="rounded-lg border border-stone-200 bg-white px-3 py-1.5 text-sm text-stone-700"
+              className="rounded-md border border-border bg-surface px-3 py-1.5 text-sm text-text-muted"
             >
               {slot}
             </li>
@@ -95,7 +96,7 @@ export default async function GMDetailPage({
 
       <button
         type="button"
-        className="mt-8 w-full rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700 sm:w-auto"
+        className="mt-8 w-full rounded-md bg-accent px-5 py-3 font-semibold text-accent-contrast transition hover:bg-accent-hover sm:w-auto"
       >
         Request a seat at {gm.name.split(" ")[0]}&apos;s table
       </button>

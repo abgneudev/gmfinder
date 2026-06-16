@@ -15,11 +15,11 @@ const NAV: { href: string; label: string }[] = [
 
 export default function Header() {
   return (
-    <header className="border-b border-stone-200 bg-white/80 backdrop-blur">
+    <header className="border-b border-border bg-bg/70 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-stone-900"
+          className="font-display text-lg font-bold tracking-tight text-text"
         >
           GMFinder <span aria-hidden>🎲</span>
         </Link>
@@ -28,7 +28,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-medium text-stone-600 transition hover:text-indigo-600"
+              className="font-medium text-text-muted transition hover:text-accent"
             >
               {item.label}
             </Link>

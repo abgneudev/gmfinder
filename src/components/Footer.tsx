@@ -12,15 +12,15 @@ const LINKS: { href: string; label: string }[] = [
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-stone-200 bg-stone-50">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-sm text-stone-500 sm:flex-row">
+    <footer className="mt-16 border-t border-border bg-surface">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-sm text-text-faint sm:flex-row">
         <p>
-          <span className="font-semibold text-stone-700">GMFinder</span> — book
+          <span className="font-semibold text-text">GMFinder</span> — book
           professional Game Masters for tabletop RPGs.
         </p>
         <div className="flex items-center gap-4">
           {LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="hover:text-indigo-600">
+            <Link key={l.href} href={l.href} className="hover:text-accent">
               {l.label}
             </Link>
           ))}
